@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  streamlit:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./dags:/app/dags
+    environment:
+      MODEL_ARTIFACT_ROOT: /app/data/brfss/2021/artifacts/models
+      PROCESSED_DATA_PATH: /app/data/processed/brfss_lifestyle_risk.parquet
+    command: ["streamlit", "run", "app/streamlit_app.py", "--server.address=0.0.0.0"]
+
+  airflow:
+    image: apache/airflow:2.10.2-python3.11
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+    ports:
+      - "8080:8080"
+    command: standalone
+    profiles: [airflow]

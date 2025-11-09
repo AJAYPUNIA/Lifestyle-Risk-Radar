@@ -1,0 +1,31 @@
+# ---- Python / Streamlit / Airflow / Docker ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.venv/
+env/
+venv/
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
+
+# ---- Data files ----
+data/raw/
+data/staged/
+data/processed/
+*.zip
+*.XPT
+*.ASC
+*.parquet
+*.joblib
+*.json
+
+# ---- IDEs / OS ----
+.vscode/
+.idea/
+
+# ---- Logs / models ----
+logs/
+artifacts/
