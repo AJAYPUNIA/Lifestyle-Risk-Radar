@@ -8,6 +8,25 @@ By doing this, teams get continuous risk monitoring without a full-time data sci
 Automated data ingestion, model retraining, and dashboarding pipeline for lifestyle-driven disease risk using Apache Airflow and Streamlit.
 
 ## Project Structure
+# 🩺 Lifestyle Risk Radar
+
+Hospitals often track lifestyle habits such as smoking, drinking, exercise, and BMI, but it’s hard to turn that information into timely alerts about who might be at risk.  
+**Lifestyle Risk Radar** automates this process: it takes lifestyle inputs (plus basic health info) and predicts the chance a patient already has—or may soon develop—chronic **heart, metabolic, breathing, or kidney** issues.
+
+Apache Airflow and reusable pipelines keep the data fresh — they download new BRFSS records, clean them, retrain models, save metrics, and refresh the dashboard on a schedule — **no manual crunching needed**.  
+The Streamlit app shows current model performance and provides a clinician-friendly form to test “what-if” lifestyle scenarios for any patient, instantly visualizing how changes affect risk.  
+
+By doing this, teams gain continuous risk monitoring **without needing a full-time data scientist**, clear insight into how lifestyle drives health risk, and actionable alerts to reach out sooner to patients whose risk increases — even before symptoms appear.
+
+---
+
+## 🧠 Summary
+
+Automated data ingestion, preprocessing, model retraining, and dashboarding pipeline for lifestyle-driven disease risk using **Apache Airflow** and **Streamlit**.
+
+---
+
+## 🏗️ Project Structure
 
 ```
 app/                         # Streamlit app
@@ -23,7 +42,8 @@ notebooks/                   # EDA & modeling experiments
 
 ## Quickstart
 
-### 1. Local (Python)
+### 🧩 1. Local (Python)
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
@@ -40,7 +60,7 @@ python -m airflow_patient_risk_prediction.pipelines.train \
   --artifacts-dir data/brfss/2021/artifacts/models
 
 # Launch dashboard
-streamlit run app/streamlit_app.py
+streamlit run app/streamlit_app.pyamlit run app/streamlit_app.py
 ```
 
 ### 2. Docker Compose
@@ -70,9 +90,10 @@ docker compose up --build streamlit
 - [ ] Streamlit app displays metrics and predictions using latest artifacts.
 - [ ] Docker images build successfully and services start.
 
-## Next Steps
-- Integrate automated data-quality checks.
-- Add alerting for metric regressions in Airflow.
-- Enrich dashboard with cohort analysis and trend reporting.
-
 For detailed operational guidance, see `docs/runbook.md`.
+Languages & Libraries: Python, Pandas, Scikit-learn, XGBoost
+Workflow Orchestration: Apache Airflow
+Dashboarding: Streamlit
+Containerization: Docker / Docker Compose
+Data Source: BRFSS (Behavioral Risk Factor Surveillance System)
+
